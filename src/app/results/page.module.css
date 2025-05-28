@@ -1,0 +1,816 @@
+.main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 2rem;
+  font-family: sans-serif;
+}
+
+.container {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 800px;
+}
+
+.title {
+  color: #1a1a1a;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  position: relative;
+}
+
+.title::after {
+  content: "";
+  position: absolute;
+  bottom: -0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #3182ce, #48bb78);
+  border-radius: 2px;
+}
+
+/* Prominent Final Cost Section */
+.finalCostSection {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.finalCostCard {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 3rem 2rem;
+  border-radius: 16px;
+  color: white;
+  box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.finalCostCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.finalCostLabel {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.finalCostValue {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  line-height: 1;
+}
+
+.customerInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  opacity: 0.9;
+}
+
+.customerName {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.customerRegion {
+  font-size: 1rem;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+.showStepsButton {
+  background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(65, 153, 225, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.showStepsButton:hover {
+  background: linear-gradient(135deg, #3182ce 0%, #2c5282 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(65, 153, 225, 0.4);
+}
+
+/* Collapsible Steps Section */
+.stepsSection {
+  margin-bottom: 2rem;
+  padding: 2rem;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stepsSectionTitle {
+  color: #2d3748;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.calculationSteps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  border: 1px solid #e2e8f0;
+}
+
+.stepTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0.75rem 0 0.25rem;
+  padding: 0.5rem;
+  background: linear-gradient(135deg, #edf2f7 0%, #e2e8f0 100%);
+  border-radius: 6px;
+  border-left: 4px solid #3182ce;
+}
+
+.stepDetail {
+  margin: 0.25rem 0 0.25rem 1rem;
+  color: #4a5568;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  padding: 0.25rem 0;
+}
+
+/* Key Metrics Section */
+.keyMetricsSection {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  animation: slideDown 0.3s ease-out;
+}
+
+.keyMetricsTitle {
+  color: #2d3748;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.metricItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: #f8fafc;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+}
+
+.metricLabel {
+  color: #4a5568;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.metricValue {
+  color: #2d3748;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+/* License Section */
+.licenseSection {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  animation: slideDown 0.3s ease-out;
+}
+
+.licenseSectionTitle {
+  color: #2d3748;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.licenseGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.licenseItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: #f8fafc;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+}
+
+.licenseIcon {
+  color: #48bb78;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.licenseName {
+  color: #2d3748;
+  font-weight: 500;
+}
+
+/* Action Section */
+.actionSection {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.submitButton {
+  background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(72, 187, 120, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  min-width: 200px;
+}
+
+.submitButton:hover {
+  background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(72, 187, 120, 0.4);
+}
+
+.forecastButton {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  min-width: 200px;
+}
+
+.forecastButton:hover {
+  background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+}
+
+.newCustomerButton {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(245, 87, 108, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  min-width: 200px;
+}
+
+.newCustomerButton:hover {
+  background: linear-gradient(135deg, #e056fd 0%, #f12c4c 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(245, 87, 108, 0.4);
+}
+
+/* Error and Loading States */
+.errorContainer {
+  text-align: center;
+  padding: 2rem;
+}
+
+.errorTitle {
+  color: #c53030;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.errorMessage {
+  color: #e53e3e;
+  margin-bottom: 1.5rem;
+}
+
+.loadingContainer {
+  text-align: center;
+  padding: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .finalCostValue {
+    font-size: 3rem;
+  }
+  
+  .finalCostCard {
+    padding: 2rem 1.5rem;
+  }
+  
+  .metricsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .licenseGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .actionSection {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .submitButton,
+  .forecastButton {
+    min-width: 100%;
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Legacy styles for backward compatibility */
+.resultSection {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.sectionTitle {
+  color: #2d3748;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.infoGrid {
+  display: grid;
+  gap: 1rem;
+}
+
+.infoItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: white;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 0.5rem;
+}
+
+.label {
+  color: #4a5568;
+  font-weight: 600;
+  width: 30%;
+  text-align: left;
+}
+
+.value {
+  color: #2d3748;
+  font-weight: 500;
+  width: 70%;
+  text-align: right;
+}
+
+.optimizationPotential {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, #e8f5e8 0%, #f0f8f0 100%);
+  border-radius: 8px;
+  border-left: 4px solid #28a745;
+}
+
+.savingsHighlight {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.savingsLabel {
+  font-weight: 600;
+  color: #155724;
+}
+
+.savingsAmount {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #28a745;
+}
+
+.optimizedCost {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.optimizedLabel {
+  font-weight: 600;
+  color: #155724;
+}
+
+.optimizedAmount {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #28a745;
+}
+
+.benchmarkSection {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.benchmarkGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.benchmarkCard {
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.benchmarkCard h4 {
+  margin: 0 0 1rem 0;
+  color: #495057;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.scoreDisplay {
+  margin-top: 0.5rem;
+}
+
+.scoreValue {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.scoreBar {
+  width: 100%;
+  height: 8px;
+  background: #e9ecef;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+  overflow: hidden;
+}
+
+.scoreProgress {
+  height: 100%;
+  background: linear-gradient(90deg, #dc3545 0%, #ffc107 50%, #28a745 100%);
+  transition: width 0.3s ease;
+}
+
+.percentileDisplay {
+  margin-top: 0.5rem;
+}
+
+.percentileValue {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.percentileLabel {
+  display: block;
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-top: 0.25rem;
+}
+
+.serviceBreakdownSection {
+  margin: 2rem 0;
+}
+
+.serviceGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.serviceCard {
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.serviceHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.serviceName {
+  font-weight: 600;
+  color: #495057;
+}
+
+.serviceCost {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.serviceMetrics {
+  margin-top: 0.5rem;
+}
+
+.percentileIndicator {
+  margin-bottom: 0.5rem;
+}
+
+.percentileBadge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.percentileBadge.efficient {
+  background: #d4edda;
+  color: #155724;
+}
+
+.percentileBadge.average {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.percentileBadge.above-average {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.percentileBadge.high-cost {
+  background: #f5c6cb;
+  color: #721c24;
+}
+
+.optimizationIndicator {
+  margin-top: 0.25rem;
+}
+
+.optimizationText {
+  font-size: 0.8rem;
+  color: #28a745;
+  font-weight: 500;
+}
+
+.optimizationSection {
+  margin: 2rem 0;
+}
+
+.recommendationsGrid {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.recommendationCard {
+  padding: 1.5rem;
+  background: white;
+  border-radius: 12px;
+  border-left: 4px solid #007bff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.recommendationCard.high {
+  border-left-color: #dc3545;
+}
+
+.recommendationCard.medium {
+  border-left-color: #ffc107;
+}
+
+.recommendationCard.low {
+  border-left-color: #28a745;
+}
+
+.recommendationCard.critical {
+  border-left-color: #6f42c1;
+}
+
+.recommendationHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.recommendationTitle {
+  margin: 0;
+  color: #495057;
+  flex: 1;
+  font-size: 1.1rem;
+}
+
+.recommendationMeta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+}
+
+.recommendationDescription {
+  margin: 0 0 1rem 0;
+  color: #495057;
+  line-height: 1.5;
+}
+
+.actionItems {
+  margin: 1rem 0;
+}
+
+.actionItems h5 {
+  margin: 0 0 0.5rem 0;
+  color: #495057;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.actionItems ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.actionItems li {
+  margin-bottom: 0.25rem;
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.recommendationFooter {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.difficultyBadge,
+.priorityBadge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.difficultyBadge.easy {
+  background: #d4edda;
+  color: #155724;
+}
+
+.difficultyBadge.medium {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.difficultyBadge.hard {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.priorityBadge.high {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.priorityBadge.critical {
+  background: #e2e3f1;
+  color: #6f42c1;
+}
+
+.priorityBadge.medium {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.priorityBadge.low {
+  background: #d4edda;
+  color: #155724;
+}
+
+/* Responsive Design Updates */
+@media (max-width: 768px) {
+  .benchmarkGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .serviceGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .recommendationHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .recommendationMeta {
+    align-items: flex-start;
+  }
+  
+  .optimizationPotential {
+    padding: 0.75rem;
+  }
+  
+  .savingsHighlight,
+  .optimizedCost {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+} 
