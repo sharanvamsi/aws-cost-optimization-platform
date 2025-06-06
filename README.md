@@ -1,255 +1,214 @@
-# AWS Cost Analysis & Optimization Platform
+# AWS Cost Optimization Platform
 
-A comprehensive Next.js application for analyzing and optimizing AWS costs for laboratory customers. This platform provides multi-dimensional cost calculations, regional benchmarking, AI-powered optimization recommendations, and future cost forecasting.
+A sophisticated platform for calculating and optimizing AWS costs for laboratory customers, providing detailed analysis, benchmarking, and AI-powered recommendations.
 
-## 🌟 Features
+## Table of Contents
+- [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+- [Detailed Usage Guide](#detailed-usage-guide)
+- [Understanding Results](#understanding-results)
+- [Cost Optimization](#cost-optimization)
+- [Advanced Features](#advanced-features)
+- [Troubleshooting](#troubleshooting)
+- [Contributing](#contributing)
+- [License](#license)
 
-### Core Functionality
-- **Enhanced AWS Cost Calculations** - Multi-dimensional analysis incorporating regional pricing, lab-specific consumption patterns, and compliance overhead
-- **Regional Benchmarking** - Compare efficiency against similar customers in your AWS region
-- **AI-Powered Optimization** - LLM-generated cost reduction recommendations with prioritized action items
-- **Cost Forecasting** - Project future costs with multiple growth scenarios (6 months to 5 years)
-- **New Customer Forecasting** - Quick cost estimates for potential new customers
+## Features
 
-### Lab Types Supported
-- Core Lab
-- Molecular Lab
-- Pathology Lab
-- Point of Care Lab
+- **Advanced Cost Calculation**: Precise AWS cost estimation based on customer type and lab profile
+- **Regional Cost Analysis**: Location-aware pricing with regional cost multipliers
+- **Lab-Specific Profiling**: Specialized calculations for different lab types:
+  - Core Lab
+  - Molecular Lab
+  - Pathology Lab
+  - Point of Care Lab
+- **Benchmarking System**: Compare costs against similar customers in the region
+- **AI-Powered Recommendations**: Get actionable cost optimization suggestions
+- **Interactive Dashboard**: Beautiful, modern UI with detailed cost breakdowns
+- **Forecasting Tools**: Predict future AWS costs and optimization potential
 
-### AWS Regions Supported
-- US West (Oregon)
-- US West (N. California)
-- US East (N. Virginia)
-- US East (Ohio)
-- Europe (Frankfurt)
-- Asia Pacific (Singapore)
+## Prerequisites
 
-## 🚀 Quick Start
+- Node.js (v16.0.0 or higher)
+- npm (v7.0.0 or higher)
+- Git
+- A modern web browser (Chrome, Firefox, Safari, or Edge)
 
-### Prerequisites
-- Node.js 18.0 or higher
-- npm or yarn package manager
+## Installation
 
-### Installation
-
-1. **Clone the repository**
+1. Clone the repository:
    ```bash
-   git clone <your-repository-url>
-   cd aws-cost-optimization-platform
+   git clone https://github.com/yourusername/aws-cost-optimization.git
+   cd aws-cost-optimization
    ```
 
-2. **Install dependencies**
+2. Install dependencies:
    ```bash
    npm install
-   # or
-   yarn install
    ```
 
-3. **Run the development server**
+3. Set up environment variables:
+   ```bash
+   cp .env.example .env
+   ```
+   Edit `.env` with your configuration settings.
+
+4. Start the development server:
    ```bash
    npm run dev
-   # or
-   yarn dev
    ```
 
-4. **Open your browser**
-   Navigate to [http://localhost:3000](http://localhost:3000)
+## Getting Started
 
-## 📋 Usage Guide
+1. **Initial Setup**
+   - Open your browser and navigate to `http://localhost:3000`
+   - Click "Calculate for New Customer" to begin
 
-### 1. Basic Cost Analysis
-1. Enter customer information (name, location)
-2. Upload customer product list (Excel/CSV format)
-3. Add any additional notes or requirements
-4. Review results with optimization recommendations
+2. **Customer Information Entry**
+   - Fill in basic customer details:
+     - Customer Name
+     - Customer Type (Hospital/Reference Lab/Research Institute/Point of Care)
+     - Country and Location
+   - Select applicable lab licenses
+   - Add any relevant notes or special requirements
 
-### 2. Cost Forecasting
-1. Complete basic analysis first
-2. Navigate to "View Cost Forecast"
-3. Configure growth scenarios and forecast period
-4. Review monthly projections and total costs
+3. **Product Selection**
+   - Choose the lab products being used
+   - Specify quantities and usage patterns
+   - Add any custom products if needed
 
-### 3. New Customer Forecasting
-1. Use "Quick New Customer Forecast" from results page
-2. Select customer type, region, and organization size
-3. Choose expected lab types and compliance requirements
-4. Generate instant cost projections
+## Detailed Usage Guide
 
-## 🏗️ Architecture
+### Step 1: Customer Profile Creation
 
-### Technology Stack
-- **Frontend**: Next.js 15.3.2 with React 19
-- **Styling**: Tailwind CSS 4.0
-- **Language**: TypeScript 5
-- **File Processing**: xlsx for Excel files, pdf-parse for PDFs
-- **HTTP Client**: Axios for API requests
-- **AI Integration**: OpenAI API (optional, with fallback recommendations)
+1. **Basic Information**
+   - Enter customer name exactly as it appears in official documents
+   - Select the primary customer type
+   - Provide precise location details for accurate regional pricing
 
-### Project Structure
-```
-src/
-├── app/
-│   ├── components/          # Reusable UI components
-│   ├── api/                 # API routes for backend processing
-│   ├── results/             # Cost analysis results page
-│   ├── forecast/            # Cost forecasting page
-│   ├── new-customer-forecast/ # New customer estimation
-│   └── extra-info/          # Additional information collection
-├── static/                  # Static assets and data files
-└── public/                  # Public assets
-```
+2. **Lab Type Selection**
+   - Choose all applicable lab types
+   - For multiple lab types, prioritize based on usage volume
+   - Consider future expansion plans when selecting lab types
 
-## 🔧 Configuration
+3. **License Management**
+   - Add all current licenses
+   - Specify license durations and renewal dates
+   - Note any special licensing arrangements
 
-### Environment Variables
-Create a `.env.local` file in the root directory:
+### Step 2: AWS Service Configuration
 
-```env
-# Optional: OpenAI API key for enhanced recommendations
-OPENAI_API_KEY=your_openai_api_key_here
+1. **Service Selection**
+   - Review pre-populated services based on lab type
+   - Add or remove services as needed
+   - Adjust service levels based on actual usage
 
-# Optional: Ollama endpoint for local LLM (fallback)
-OLLAMA_ENDPOINT=http://localhost:11434
-```
+2. **Usage Patterns**
+   - Specify peak usage hours
+   - Define data processing volumes
+   - Set storage requirements
+   - Configure backup and redundancy needs
 
-### Data Configuration
-The application uses several configuration files in the `static/` directory:
+### Step 3: Cost Analysis
 
-- **Customer data**: Upload via Excel/CSV with columns for customer name, location, products
-- **Regional pricing**: Configured in API routes (`src/app/api/map-customer-region/route.ts`)
-- **Lab consumption profiles**: Defined in the same API route file
+1. **Initial Calculation**
+   - Review automatically calculated base costs
+   - Verify regional pricing adjustments
+   - Check service-specific cost breakdowns
 
-## 🚀 Deployment
+2. **Benchmarking Review**
+   - Compare costs against regional averages
+   - Review efficiency scores by service
+   - Identify cost outliers
 
-### Production Build
-```bash
-npm run build
-npm start
-```
+### Step 4: Optimization
 
-### Docker Deployment
-Create a `Dockerfile`:
+1. **Review Recommendations**
+   - Examine AI-generated optimization suggestions
+   - Prioritize recommendations by impact
+   - Review implementation difficulty ratings
 
-```dockerfile
-FROM node:18-alpine
+2. **Implementation Planning**
+   - Create action items from recommendations
+   - Schedule optimization tasks
+   - Track potential savings
 
-WORKDIR /app
+## Understanding Results
 
-COPY package*.json ./
-RUN npm ci --only=production
+### Cost Breakdown
+- **Total AWS Cost**: Your calculated monthly AWS spending
+- **Regional Comparison**: How your costs compare to similar customers
+- **Service-Level Analysis**: Detailed breakdown by AWS service
+- **Efficiency Scores**: Performance metrics for each service
 
-COPY . .
-RUN npm run build
+### Optimization Metrics
+- **Potential Savings**: Estimated cost reduction opportunities
+- **Implementation Timeline**: Suggested schedule for changes
+- **ROI Calculations**: Expected return on optimization efforts
 
-EXPOSE 3000
+### Benchmarking Data
+- **Regional Percentile**: Your standing among similar customers
+- **Efficiency Ratings**: Service-specific performance scores
+- **Industry Comparisons**: How you compare to industry standards
 
-CMD ["npm", "start"]
-```
+## Cost Optimization
 
-Build and run:
-```bash
-docker build -t aws-cost-platform .
-docker run -p 3000:3000 aws-cost-platform
-```
+### Immediate Actions
+1. Review high-impact, low-effort recommendations
+2. Implement suggested service-level adjustments
+3. Apply regional optimization strategies
 
-### Vercel Deployment
-1. Connect your repository to Vercel
-2. Configure environment variables in Vercel dashboard
-3. Deploy automatically on git push
+### Long-term Strategy
+1. Monitor cost trends over time
+2. Schedule regular optimization reviews
+3. Track implementation progress
+4. Measure actual savings against projections
 
-### AWS/Cloud Deployment
-For enterprise deployment on AWS:
-1. Use AWS Amplify for automatic deployments
-2. Or deploy to EC2 with Load Balancer
-3. Configure CloudFront for global CDN
-4. Set up RDS for customer data persistence (optional enhancement)
+## Advanced Features
 
-## 📊 Data Requirements
+### Forecasting Tools
+- Use the "View Cost Forecast" feature for future cost predictions
+- Analyze trend data for long-term planning
+- Adjust forecasts based on planned changes
 
-### Customer List Format
-Excel/CSV file with columns:
-- **Customer Name** (required)
-- **Location** (city, state/country)
-- **Products** (comma-separated list)
-- **Bed Count** (for hospitals)
-- **Lab Types** (optional)
+### Custom Analysis
+- Export detailed reports for offline analysis
+- Create custom benchmarking groups
+- Set up specialized monitoring metrics
 
-### Example:
-```csv
-Customer Name,Location,Products,Bed Count,Lab Types
-General Hospital,Boston MA,Product A,Product B,350,Core Lab,Pathology Lab
-Research Labs Inc,San Francisco CA,Product C,Product D,,Molecular Lab
-```
-
-## 🔒 Security Considerations
-
-### Data Privacy
-- Customer data is processed locally and not permanently stored
-- No sensitive data is sent to external APIs (except optional OpenAI for recommendations)
-- All uploaded files are processed in-memory and cleared after analysis
-
-### Access Control
-For enterprise deployment, consider adding:
-- User authentication (NextAuth.js)
-- Role-based access control
-- Audit logging
-- Rate limiting
-
-## 🤝 Customization
-
-### Adding New AWS Regions
-1. Update `regionalMultipliers` in `src/app/api/map-customer-region/route.ts`
-2. Add region to dropdown in forecast pages
-
-### Adding New Lab Types
-1. Update `labBaselineCosts` in API routes
-2. Add to available options in UI components
-3. Update consumption profiles as needed
-
-### Modifying Cost Calculations
-- Core calculation logic is in `src/app/api/map-customer-region/route.ts`
-- Regional benchmarking in `performBenchmarkAnalysis()` function
-- Forecasting algorithms in forecast page components
-
-## 📈 Monitoring & Analytics
-
-### Performance Monitoring
-- Next.js built-in performance monitoring
-- Consider adding Vercel Analytics or Google Analytics
-- Monitor API response times and error rates
-
-### Usage Analytics
-- Track popular features and user flows
-- Monitor file upload success rates
-- Analyze forecast accuracy over time
-
-## 🆘 Support & Maintenance
+## Troubleshooting
 
 ### Common Issues
-1. **File upload failures**: Check file format and size limits
-2. **Calculation errors**: Verify customer data format
-3. **Performance issues**: Monitor bundle size and optimize imports
 
-### Updates & Maintenance
-- Regularly update dependencies for security patches
-- Review and update regional pricing multipliers
-- Enhance AI recommendations based on user feedback
+1. **Calculation Errors**
+   - Verify all input data is correct
+   - Check for missing required fields
+   - Ensure valid license information
 
-## 📄 License
+2. **Performance Issues**
+   - Clear browser cache
+   - Refresh the page
+   - Check internet connection
 
-This project is proprietary software. Modify the license terms as needed for your organization.
+3. **Data Discrepancies**
+   - Verify customer information
+   - Review service selections
+   - Check regional settings
 
-## 🤝 Contributing
+## Contributing
 
-For internal development:
-1. Create feature branches from main
-2. Follow TypeScript best practices
-3. Test thoroughly before merging
-4. Update documentation for new features
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 ---
 
-**Contact**: [Your Company Contact Information]
-**Version**: 1.0.0
-**Last Updated**: December 2024
+For additional support or questions, please contact our support team or open an issue on GitHub.
