@@ -3,6 +3,7 @@
 A sophisticated platform for calculating and optimizing AWS costs for laboratory customers, providing detailed analysis, benchmarking, and AI-powered recommendations.
 
 ## Table of Contents
+- [Complete Setup Guide](#complete-setup-guide)
 - [Features](#features)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
@@ -14,6 +15,210 @@ A sophisticated platform for calculating and optimizing AWS costs for laboratory
 - [Troubleshooting](#troubleshooting)
 - [Contributing](#contributing)
 - [License](#license)
+
+## Complete Setup Guide
+
+This section provides a step-by-step guide for setting up your development environment from scratch.
+
+### 1. Development Environment Setup
+
+#### For Windows:
+1. **Install Windows Terminal (Optional but Recommended)**
+   - Open the Microsoft Store
+   - Search for "Windows Terminal"
+   - Click "Install"
+   - Once installed, you can open it from the Start menu
+
+2. **Install Visual Studio Code**
+   - Visit [Visual Studio Code](https://code.visualstudio.com/)
+   - Download the Windows installer
+   - Run the installer (VSCodeUserSetup-{version}.exe)
+   - Follow the installation wizard
+   - Check all the boxes in the "Select Additional Tasks" screen
+   - Click "Install"
+
+3. **Install Git**
+   - Visit [Git for Windows](https://git-scm.com/download/windows)
+   - Download the installer
+   - Run the installer
+   - Use the default options (or customize if you know what you're doing)
+   - Choose "Use Visual Studio Code as Git's default editor"
+   - Select "Git from the command line and also from 3rd-party software"
+
+4. **Install Node.js**
+   - Visit [Node.js](https://nodejs.org/)
+   - Download the LTS version
+   - Run the installer
+   - Follow the installation wizard
+   - Check the box to automatically install necessary tools
+
+#### For macOS:
+1. **Install Homebrew**
+   - Open Terminal (Press Cmd + Space, type "Terminal")
+   - Paste and run this command:
+     ```bash
+     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+     ```
+   - Follow the prompts
+
+2. **Install Visual Studio Code**
+   ```bash
+   brew install --cask visual-studio-code
+   ```
+
+3. **Install Git**
+   ```bash
+   brew install git
+   ```
+
+4. **Install Node.js**
+   ```bash
+   brew install node
+   ```
+
+#### For Linux (Ubuntu/Debian):
+1. **Install Visual Studio Code**
+   ```bash
+   sudo apt update
+   sudo apt install software-properties-common apt-transport-https wget
+   wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
+   sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+   sudo apt update
+   sudo apt install code
+   ```
+
+2. **Install Git**
+   ```bash
+   sudo apt update
+   sudo apt install git
+   ```
+
+3. **Install Node.js**
+   ```bash
+   curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+   sudo apt install nodejs
+   ```
+
+### 2. VS Code Configuration
+
+1. **Install Essential Extensions**
+   - Open VS Code
+   - Click the Extensions icon in the sidebar (or press Ctrl+Shift+X)
+   - Install these recommended extensions:
+     - ESLint
+     - Prettier
+     - GitLens
+     - npm Intellisense
+     - Path Intellisense
+     - Auto Close Tag
+     - Auto Rename Tag
+     - JavaScript (ES6) code snippets
+     - Tailwind CSS IntelliSense
+
+2. **Configure VS Code Settings**
+   - Open Command Palette (Ctrl+Shift+P or Cmd+Shift+P on macOS)
+   - Type "Open Settings (JSON)"
+   - Add these recommended settings:
+   ```json
+   {
+     "editor.formatOnSave": true,
+     "editor.defaultFormatter": "esbenp.prettier-vscode",
+     "editor.codeActionsOnSave": {
+       "source.fixAll.eslint": true
+     },
+     "files.autoSave": "onFocusChange"
+   }
+   ```
+
+### 3. Project Setup
+
+1. **Create Project Directory**
+   ```bash
+   mkdir my-aws-cost-optimizer
+   cd my-aws-cost-optimizer
+   ```
+
+2. **Clone the Repository**
+   ```bash
+   git clone https://github.com/yourusername/aws-cost-optimization.git .
+   ```
+
+3. **Install Dependencies**
+   ```bash
+   npm install
+   ```
+
+4. **Set Up Environment Variables**
+   ```bash
+   cp .env.example .env
+   ```
+   Edit `.env` with your configuration:
+   ```
+   NEXT_PUBLIC_API_URL=http://localhost:3000
+   # Add other required environment variables
+   ```
+
+### 4. Running the Application
+
+1. **Start Development Server**
+   ```bash
+   npm run dev
+   ```
+
+2. **Access the Application**
+   - Open your browser
+   - Navigate to `http://localhost:3000`
+   - You should see the application running
+
+### 5. Development Workflow
+
+1. **Create a New Branch**
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+
+2. **Make Changes**
+   - Open the project in VS Code
+   - Make your changes
+   - Save files (they will auto-format if you set up Prettier)
+
+3. **Test Your Changes**
+   ```bash
+   npm run test
+   npm run lint
+   ```
+
+4. **Commit Changes**
+   ```bash
+   git add .
+   git commit -m "Description of your changes"
+   ```
+
+5. **Push to GitHub**
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+
+### 6. Troubleshooting Development Setup
+
+1. **Node.js Issues**
+   - Verify installation: `node --version`
+   - Clear npm cache: `npm cache clean --force`
+   - Reinstall dependencies: `rm -rf node_modules && npm install`
+
+2. **Git Issues**
+   - Check git configuration: `git config --list`
+   - Reset git credentials if needed: `git config --global --unset credential.helper`
+
+3. **VS Code Issues**
+   - Reload window: Ctrl+Shift+P (Cmd+Shift+P on macOS) → "Reload Window"
+   - Reset VS Code settings: Delete settings.json and recreate
+   - Reinstall extensions
+
+4. **Common Error Solutions**
+   - Port 3000 in use: Kill the process or use a different port
+   - Module not found: Check package.json and reinstall dependencies
+   - Git authentication: Set up SSH keys or use GitHub CLI
 
 ## Features
 
