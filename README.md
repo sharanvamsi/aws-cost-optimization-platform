@@ -220,6 +220,97 @@ This section provides a step-by-step guide for setting up your development envir
    - Module not found: Check package.json and reinstall dependencies
    - Git authentication: Set up SSH keys or use GitHub CLI
 
+### 7. AI Components Setup
+
+#### OpenAI Setup (Recommended)
+1. **Get API Key**
+   - Visit [OpenAI's platform](https://platform.openai.com)
+   - Create an account or sign in
+   - Navigate to API keys section
+   - Create a new API key
+   - Copy the key to your `.env` file:
+     ```
+     OPENAI_API_KEY=your_key_here
+     ```
+
+#### Ollama Setup (Alternative/Fallback)
+1. **Install Ollama**
+   
+   For macOS:
+   ```bash
+   curl -fsSL https://ollama.com/install.sh | sh
+   ```
+   
+   For Linux:
+   ```bash
+   curl -fsSL https://ollama.com/install.sh | sh
+   ```
+   
+   For Windows:
+   - Download the installer from [Ollama's website](https://ollama.com)
+   - Run the installer
+   - Follow the setup wizard
+
+2. **Start Ollama Service**
+   ```bash
+   ollama serve
+   ```
+
+3. **Pull Required Model**
+   ```bash
+   ollama pull llama2
+   ```
+
+4. **Configure Environment**
+   Add to your `.env` file:
+   ```
+   OLLAMA_ENDPOINT=http://localhost:11434
+   OLLAMA_MODEL=llama2
+   ```
+
+5. **Verify Installation**
+   ```bash
+   curl http://localhost:11434/api/tags
+   ```
+   You should see a list of available models.
+
+6. **Troubleshooting Ollama**
+   - If Ollama service fails to start:
+     ```bash
+     sudo lsof -i :11434  # Check if port is in use
+     sudo killall ollama  # Stop any running instances
+     ollama serve         # Restart the service
+     ```
+   - If model pull fails:
+     ```bash
+     ollama rm llama2     # Remove existing model
+     ollama pull llama2   # Try pulling again
+     ```
+   - Memory issues:
+     - Ensure at least 8GB RAM available
+     - Close memory-intensive applications
+     - Consider using a smaller model
+
+### AI Component Usage
+
+The platform uses AI for:
+1. **Cost Optimization Recommendations**
+   - Analyzing usage patterns
+   - Suggesting infrastructure changes
+   - Providing implementation steps
+
+2. **Regional Benchmarking**
+   - Comparing costs with similar setups
+   - Identifying efficiency opportunities
+   - Generating customized reports
+
+3. **Forecast Adjustments**
+   - Fine-tuning growth predictions
+   - Adjusting for seasonal variations
+   - Incorporating industry trends
+
+The system will automatically fall back to Ollama if OpenAI is not configured or unavailable.
+
 ## Features
 
 - **Advanced Cost Calculation**: Precise AWS cost estimation based on customer type and lab profile
