@@ -2,509 +2,356 @@
 
 A sophisticated platform for calculating and optimizing AWS costs for laboratory customers, providing detailed analysis, benchmarking, and AI-powered recommendations.
 
+## What This Application Does
+
+This application helps laboratory businesses understand and optimize their Amazon Web Services (AWS) costs. It analyzes your current setup, compares it to similar organizations, and provides specific recommendations to reduce your cloud computing expenses.
+
+**Key Benefits:**
+- Calculate accurate AWS costs for your laboratory
+- Compare your costs to similar organizations in your region
+- Get AI-powered recommendations to reduce expenses
+- Forecast future costs based on growth plans
+- Identify the most impactful cost-saving opportunities
+
 ## Table of Contents
-- [Complete Setup Guide](#complete-setup-guide)
-- [Features](#features)
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Getting Started](#getting-started)
-- [Detailed Usage Guide](#detailed-usage-guide)
-- [Understanding Results](#understanding-results)
-- [Cost Optimization](#cost-optimization)
+- [Complete Beginner's Setup Guide](#complete-beginners-setup-guide)
+- [How to Use the Application](#how-to-use-the-application)
+- [Understanding Your Results](#understanding-your-results)
 - [Advanced Features](#advanced-features)
 - [Troubleshooting](#troubleshooting)
-- [Contributing](#contributing)
-- [License](#license)
+- [Getting Help](#getting-help)
 
-## Complete Setup Guide
+## Complete Beginner's Setup Guide
 
-This section provides a step-by-step guide for setting up your development environment from scratch.
+### What You'll Need Before Starting
 
-### 1. Development Environment Setup
+Before we begin, understand that this is a web application that runs on your computer. You'll need:
+- A computer with Windows, Mac, or Linux
+- An internet connection
+- About 30-60 minutes to set everything up
+- Administrative access to install software
 
-#### For Windows:
-1. **Install Windows Terminal (Optional but Recommended)**
-   - Open the Microsoft Store
-   - Search for "Windows Terminal"
+### Step 1: Understanding the Tools We'll Install
+
+**What is a Terminal/Command Prompt?**
+- A text-based interface to control your computer
+- Think of it as a way to give your computer direct instructions
+- Don't worry - we'll give you exact commands to type
+
+**What is Git?**
+- A tool that helps manage code and files
+- Allows you to download and update the application
+- Think of it like a sophisticated copy/paste system for code
+
+**What is Node.js?**
+- A program that allows JavaScript to run on your computer
+- Required to run our web application
+- Like installing Microsoft Office to open Word documents
+
+**What is Visual Studio Code?**
+- A text editor designed for code
+- Has helpful features for working with web applications
+- Free and widely used by developers
+
+### Step 2: Installing Required Software
+
+#### For Windows Users:
+
+**Installing Git:**
+1. Open your web browser (Chrome, Firefox, Edge, etc.)
+2. Go to [https://git-scm.com/download/windows](https://git-scm.com/download/windows)
+3. The download should start automatically. If not, click "Download for Windows"
+4. Once downloaded, find the file (usually in your Downloads folder)
+5. Double-click the installer file (it will be named something like `Git-2.x.x-64-bit.exe`)
+6. When the installer opens:
+   - Click "Next" on the welcome screen
+   - Keep the default installation location unless you have a reason to change it
+   - **Important:** On the "Select Components" screen, make sure "Git Bash Here" is checked
+   - **Important:** When asked about the default editor, choose "Use Visual Studio Code as Git's default editor"
+   - **Important:** When asked about PATH environment, select "Git from the command line and also from 3rd-party software"
+   - For all other options, use the defaults by clicking "Next"
+   - Click "Install" and wait for it to complete
+   - Click "Finish"
+
+**Installing Node.js:**
+1. Go to [https://nodejs.org](https://nodejs.org)
+2. You'll see two download buttons. Click the one labeled "LTS" (Long Term Support)
+3. This downloads a file named something like `node-v18.x.x-x64.msi`
+4. Double-click this file to start installation
+5. Click "Next" through the installer:
+   - Accept the license agreement
+   - Keep the default installation location
+   - **Important:** Make sure "Add to PATH" is checked
    - Click "Install"
-   - Once installed, you can open it from the Start menu
+6. You may be prompted to install additional tools - click "Yes" if asked
+7. Wait for installation to complete and click "Finish"
 
-2. **Install Visual Studio Code**
-   - Visit [Visual Studio Code](https://code.visualstudio.com/)
-   - Download the Windows installer
-   - Run the installer (VSCodeUserSetup-{version}.exe)
-   - Follow the installation wizard
-   - Check all the boxes in the "Select Additional Tasks" screen
+**Installing Visual Studio Code:**
+1. Go to [https://code.visualstudio.com](https://code.visualstudio.com)
+2. Click the big "Download for Windows" button
+3. This downloads a file like `VSCodeUserSetup-1.x.x.exe`
+4. Double-click to install:
+   - Accept the license agreement
+   - **Important:** On the "Select Additional Tasks" screen, check ALL boxes:
+     - "Add 'Open with Code' action to Windows Explorer file context menu"
+     - "Add 'Open with Code' action to Windows Explorer directory context menu"
+     - "Register Code as an editor for supported file types"
+     - "Add to PATH"
    - Click "Install"
+   - When finished, click "Finish"
 
-3. **Install Git**
-   - Visit [Git for Windows](https://git-scm.com/download/windows)
-   - Download the installer
-   - Run the installer
-   - Use the default options (or customize if you know what you're doing)
-   - Choose "Use Visual Studio Code as Git's default editor"
-   - Select "Git from the command line and also from 3rd-party software"
+#### For Mac Users:
 
-4. **Install Node.js**
-   - Visit [Node.js](https://nodejs.org/)
-   - Download the LTS version
-   - Run the installer
-   - Follow the installation wizard
-   - Check the box to automatically install necessary tools
-
-#### For macOS:
-1. **Install Homebrew**
-   - Open Terminal (Press Cmd + Space, type "Terminal")
-   - Paste and run this command:
-     ```bash
-     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-     ```
-   - Follow the prompts
-
-2. **Install Visual Studio Code**
+**Installing Homebrew (Package Manager):**
+1. Press `Cmd + Space` to open Spotlight search
+2. Type "Terminal" and press Enter
+3. A black window will open - this is the Terminal
+4. Copy and paste this command (press `Cmd + V` to paste):
    ```bash
-   brew install --cask visual-studio-code
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
    ```
+5. Press Enter and follow the prompts
+6. You may need to enter your computer password
+7. Wait for installation to complete (this can take 10-15 minutes)
 
-3. **Install Git**
+**Installing Git:**
+1. In the same Terminal window, type:
    ```bash
    brew install git
    ```
+2. Press Enter and wait for installation to complete
 
-4. **Install Node.js**
+**Installing Node.js:**
+1. In Terminal, type:
    ```bash
    brew install node
    ```
+2. Press Enter and wait for installation to complete
 
-#### For Linux (Ubuntu/Debian):
-1. **Install Visual Studio Code**
+**Installing Visual Studio Code:**
+1. In Terminal, type:
    ```bash
-   sudo apt update
-   sudo apt install software-properties-common apt-transport-https wget
-   wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
-   sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
-   sudo apt update
-   sudo apt install code
+   brew install --cask visual-studio-code
    ```
+2. Press Enter and wait for installation to complete
 
-2. **Install Git**
+#### For Linux Users (Ubuntu/Debian):
+
+**Installing Git:**
+1. Open Terminal (Ctrl + Alt + T)
+2. Type these commands one at a time:
    ```bash
    sudo apt update
    sudo apt install git
    ```
+3. Enter your password when prompted
 
-3. **Install Node.js**
+**Installing Node.js:**
+1. In Terminal, type:
    ```bash
-   curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+   curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
    sudo apt install nodejs
    ```
 
-### 2. VS Code Configuration
-
-1. **Install Essential Extensions**
-   - Open VS Code
-   - Click the Extensions icon in the sidebar (or press Ctrl+Shift+X)
-   - Install these recommended extensions:
-     - ESLint
-     - Prettier
-     - GitLens
-     - npm Intellisense
-     - Path Intellisense
-     - Auto Close Tag
-     - Auto Rename Tag
-     - JavaScript (ES6) code snippets
-     - Tailwind CSS IntelliSense
-
-2. **Configure VS Code Settings**
-   - Open Command Palette (Ctrl+Shift+P or Cmd+Shift+P on macOS)
-   - Type "Open Settings (JSON)"
-   - Add these recommended settings:
-   ```json
-   {
-     "editor.formatOnSave": true,
-     "editor.defaultFormatter": "esbenp.prettier-vscode",
-     "editor.codeActionsOnSave": {
-       "source.fixAll.eslint": true
-     },
-     "files.autoSave": "onFocusChange"
-   }
-   ```
-
-### 3. Project Setup
-
-1. **Create Project Directory**
+**Installing Visual Studio Code:**
+1. In Terminal, type these commands:
    ```bash
-   mkdir my-aws-cost-optimizer
-   cd my-aws-cost-optimizer
+   wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+   sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
+   sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+   sudo apt update
+   sudo apt install code
    ```
 
-2. **Clone the Repository**
-   ```bash
-   git clone https://github.com/yourusername/aws-cost-optimization.git .
-   ```
+### Step 3: Verifying Your Installation
 
-3. **Install Dependencies**
-   ```bash
-   npm install
-   ```
+Let's make sure everything installed correctly:
 
-4. **Set Up Environment Variables**
+**Opening Terminal/Command Prompt:**
+- **Windows:** Search for "Command Prompt" or "Git Bash" in the Start menu
+- **Mac:** Press Cmd + Space, type "Terminal"
+- **Linux:** Press Ctrl + Alt + T
+
+**Testing Git:**
+1. In your terminal, type: `git --version`
+2. Press Enter
+3. You should see something like: `git version 2.x.x`
+4. If you see an error, Git isn't installed correctly
+
+**Testing Node.js:**
+1. Type: `node --version`
+2. Press Enter
+3. You should see something like: `v18.x.x`
+4. Then type: `npm --version`
+5. You should see something like: `9.x.x`
+
+**Testing Visual Studio Code:**
+1. Type: `code --version`
+2. You should see version information
+3. If it says "command not found," VS Code isn't in your PATH
+
+### Step 4: Setting Up Visual Studio Code
+
+**Opening VS Code:**
+- **Windows:** Search for "Visual Studio Code" in Start menu
+- **Mac:** Press Cmd + Space, type "Visual Studio Code"
+- **Linux:** Type `code` in terminal or find it in applications menu
+
+**Installing Essential Extensions:**
+1. Look for the Extensions icon in the left sidebar (it looks like 4 squares)
+2. Click it to open the Extensions panel
+3. Install these extensions one by one by searching for them and clicking "Install":
+
+   **ESLint** - Helps catch coding errors
+   - Search for "ESLint"
+   - Click the one by "Microsoft"
+   - Click "Install"
+
+   **Prettier** - Automatically formats your code to look nice
+   - Search for "Prettier - Code formatter"
+   - Click "Install"
+
+   **GitLens** - Shows Git information in your code
+   - Search for "GitLens"
+   - Click "Install"
+
+   **Auto Close Tag** - Automatically closes HTML tags
+   - Search for "Auto Close Tag"
+   - Click "Install"
+
+   **Tailwind CSS IntelliSense** - Helps with CSS styling
+   - Search for "Tailwind CSS IntelliSense"
+   - Click "Install"
+
+### Step 5: Getting the Application Code
+
+**Creating a Project Folder:**
+1. Open Terminal/Command Prompt
+2. Navigate to your home directory:
+   - **Windows:** Type `cd %USERPROFILE%`
+   - **Mac/Linux:** Type `cd ~`
+3. Create a new folder: `mkdir aws-cost-optimizer`
+4. Enter the folder: `cd aws-cost-optimizer`
+
+**Downloading the Code:**
+1. Copy this command exactly:
    ```bash
-   cp .env.example .env
+   git clone https://github.com/sharanvamsi/aws-cost-optimization-platform.git .
    ```
-   Edit `.env` with your configuration:
+2. Paste it in your terminal and press Enter
+3. You should see messages about downloading files
+4. This process downloads all the application files to your computer
+
+### Step 6: Installing Application Dependencies
+
+**Installing Dependencies:**
+1. Make sure you're still in the project folder
+2. Type this command: `npm install`
+3. Press Enter and wait (this can take 5-10 minutes)
+4. You'll see lots of text scrolling - this is normal
+5. When it's done, you'll see a new prompt line
+
+### Step 7: Setting Up Environment Variables
+
+**Creating the Environment File:**
+1. Open VS Code in your project folder: `code .`
+2. Right-click in the file explorer and select "New File"
+3. Name it `.env` (with the dot at the beginning)
+4. Add these lines to the file:
    ```
    NEXT_PUBLIC_API_URL=http://localhost:3000
-   # Add other required environment variables
+   # Optional: Add your OpenAI API key here for enhanced recommendations
+   # OPENAI_API_KEY=your_key_here
    ```
+5. Save the file
 
-### 4. Running the Application
+### Step 8: Running the Application
 
-1. **Start Development Server**
-   ```bash
-   npm run dev
+**Starting the Development Server:**
+1. In your terminal, type: `npm run dev`
+2. Press Enter
+3. You should see output like:
    ```
-
-2. **Access the Application**
-   - Open your browser
-   - Navigate to `http://localhost:3000`
-   - You should see the application running
-
-### 5. Development Workflow
-
-1. **Create a New Branch**
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
-
-2. **Make Changes**
-   - Open the project in VS Code
-   - Make your changes
-   - Save files (they will auto-format if you set up Prettier)
-
-3. **Test Your Changes**
-   ```bash
-   npm run test
-   npm run lint
-   ```
-
-4. **Commit Changes**
-   ```bash
-   git add .
-   git commit -m "Description of your changes"
-   ```
-
-5. **Push to GitHub**
-   ```bash
-   git push origin feature/your-feature-name
-   ```
-
-### 6. Troubleshooting Development Setup
-
-1. **Node.js Issues**
-   - Verify installation: `node --version`
-   - Clear npm cache: `npm cache clean --force`
-   - Reinstall dependencies: `rm -rf node_modules && npm install`
-
-2. **Git Issues**
-   - Check git configuration: `git config --list`
-   - Reset git credentials if needed: `git config --global --unset credential.helper`
-
-3. **VS Code Issues**
-   - Reload window: Ctrl+Shift+P (Cmd+Shift+P on macOS) → "Reload Window"
-   - Reset VS Code settings: Delete settings.json and recreate
-   - Reinstall extensions
-
-4. **Common Error Solutions**
-   - Port 3000 in use: Kill the process or use a different port
-   - Module not found: Check package.json and reinstall dependencies
-   - Git authentication: Set up SSH keys or use GitHub CLI
-
-### 7. AI Components Setup
-
-#### OpenAI Setup (Recommended)
-1. **Get API Key**
-   - Visit [OpenAI's platform](https://platform.openai.com)
-   - Create an account or sign in
-   - Navigate to API keys section
-   - Create a new API key
-   - Copy the key to your `.env` file:
-     ```
-     OPENAI_API_KEY=your_key_here
-     ```
-
-#### Ollama Setup (Alternative/Fallback)
-1. **Install Ollama**
+   ▲ Next.js 15.x.x
+   - Local:        http://localhost:3000
    
-   For macOS:
-   ```bash
-   curl -fsSL https://ollama.com/install.sh | sh
-   ```
-   
-   For Linux:
-   ```bash
-   curl -fsSL https://ollama.com/install.sh | sh
-   ```
-   
-   For Windows:
-   - Download the installer from [Ollama's website](https://ollama.com)
-   - Run the installer
-   - Follow the setup wizard
-
-2. **Start Ollama Service**
-   ```bash
-   ollama serve
+   ✓ Ready in 2.3s
    ```
 
-3. **Pull Required Model**
-   ```bash
-   ollama pull llama2
-   ```
+**Accessing the Application:**
+1. Open your web browser
+2. Go to: `http://localhost:3000`
+3. You should see the AWS Cost Optimization Platform homepage
 
-4. **Configure Environment**
-   Add to your `.env` file:
-   ```
-   OLLAMA_ENDPOINT=http://localhost:11434
-   OLLAMA_MODEL=llama2
-   ```
+## How to Use the Application
 
-5. **Verify Installation**
-   ```bash
-   curl http://localhost:11434/api/tags
-   ```
-   You should see a list of available models.
+### Step-by-Step Usage Guide
 
-6. **Troubleshooting Ollama**
-   - If Ollama service fails to start:
-     ```bash
-     sudo lsof -i :11434  # Check if port is in use
-     sudo killall ollama  # Stop any running instances
-     ollama serve         # Restart the service
-     ```
-   - If model pull fails:
-     ```bash
-     ollama rm llama2     # Remove existing model
-     ollama pull llama2   # Try pulling again
-     ```
-   - Memory issues:
-     - Ensure at least 8GB RAM available
-     - Close memory-intensive applications
-     - Consider using a smaller model
+#### Step 1: Starting a New Calculation
 
-### AI Component Usage
+1. **Click "Calculate for New Customer"**
+   - This takes you to the main input form
 
-The platform uses AI for:
-1. **Cost Optimization Recommendations**
-   - Analyzing usage patterns
-   - Suggesting infrastructure changes
-   - Providing implementation steps
+2. **Fill in Customer Information:**
+   - **Customer Name:** Enter your laboratory name
+   - **Customer Type:** Select from Hospital, Reference Lab, Research Institute, or Point of Care
+   - **Country:** Enter your country
+   - **City/State:** Enter your location
 
-2. **Regional Benchmarking**
-   - Comparing costs with similar setups
-   - Identifying efficiency opportunities
-   - Generating customized reports
+#### Step 2: Selecting Lab Types
 
-3. **Forecast Adjustments**
-   - Fine-tuning growth predictions
-   - Adjusting for seasonal variations
-   - Incorporating industry trends
+Check all that apply to your facility:
+- **Core Lab:** General chemistry, hematology, immunology
+- **Molecular Lab:** PCR, sequencing, genetic testing
+- **Pathology Lab:** Tissue analysis, digital pathology
+- **Point of Care Lab:** Rapid testing, bedside diagnostics
 
-The system will automatically fall back to Ollama if OpenAI is not configured or unavailable.
+#### Step 3: Getting Your Results
 
-## Features
+1. **Click "Calculate AWS Cost"**
+2. **Review the Results:**
+   - Your estimated monthly AWS cost
+   - Regional comparison information
+   - Service breakdown
+   - Optimization recommendations
 
-- **Advanced Cost Calculation**: Precise AWS cost estimation based on customer type and lab profile
-- **Regional Cost Analysis**: Location-aware pricing with regional cost multipliers
-- **Lab-Specific Profiling**: Specialized calculations for different lab types:
-  - Core Lab
-  - Molecular Lab
-  - Pathology Lab
-  - Point of Care Lab
-- **Benchmarking System**: Compare costs against similar customers in the region
-- **AI-Powered Recommendations**: Get actionable cost optimization suggestions
-- **Interactive Dashboard**: Beautiful, modern UI with detailed cost breakdowns
-- **Forecasting Tools**: Predict future AWS costs and optimization potential
+## Understanding Your Results
 
-## Prerequisites
+### Main Cost Display
+- **Your Current AWS Cost:** Estimated monthly cost
+- **Regional Information:** AWS region used for pricing
+- **Efficiency Score:** How optimized your setup is
 
-- Node.js (v16.0.0 or higher)
-- npm (v7.0.0 or higher)
-- Git
-- A modern web browser (Chrome, Firefox, Safari, or Edge)
-
-## Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/aws-cost-optimization.git
-   cd aws-cost-optimization
-   ```
-
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-3. Set up environment variables:
-   ```bash
-   cp .env.example .env
-   ```
-   Edit `.env` with your configuration settings.
-
-4. Start the development server:
-   ```bash
-   npm run dev
-   ```
-
-## Getting Started
-
-1. **Initial Setup**
-   - Open your browser and navigate to `http://localhost:3000`
-   - Click "Calculate for New Customer" to begin
-
-2. **Customer Information Entry**
-   - Fill in basic customer details:
-     - Customer Name
-     - Customer Type (Hospital/Reference Lab/Research Institute/Point of Care)
-     - Country and Location
-   - Select applicable lab licenses
-   - Add any relevant notes or special requirements
-
-3. **Product Selection**
-   - Choose the lab products being used
-   - Specify quantities and usage patterns
-   - Add any custom products if needed
-
-## Detailed Usage Guide
-
-### Step 1: Customer Profile Creation
-
-1. **Basic Information**
-   - Enter customer name exactly as it appears in official documents
-   - Select the primary customer type
-   - Provide precise location details for accurate regional pricing
-
-2. **Lab Type Selection**
-   - Choose all applicable lab types
-   - For multiple lab types, prioritize based on usage volume
-   - Consider future expansion plans when selecting lab types
-
-3. **License Management**
-   - Add all current licenses
-   - Specify license durations and renewal dates
-   - Note any special licensing arrangements
-
-### Step 2: AWS Service Configuration
-
-1. **Service Selection**
-   - Review pre-populated services based on lab type
-   - Add or remove services as needed
-   - Adjust service levels based on actual usage
-
-2. **Usage Patterns**
-   - Specify peak usage hours
-   - Define data processing volumes
-   - Set storage requirements
-   - Configure backup and redundancy needs
-
-### Step 3: Cost Analysis
-
-1. **Initial Calculation**
-   - Review automatically calculated base costs
-   - Verify regional pricing adjustments
-   - Check service-specific cost breakdowns
-
-2. **Benchmarking Review**
-   - Compare costs against regional averages
-   - Review efficiency scores by service
-   - Identify cost outliers
-
-### Step 4: Optimization
-
-1. **Review Recommendations**
-   - Examine AI-generated optimization suggestions
-   - Prioritize recommendations by impact
-   - Review implementation difficulty ratings
-
-2. **Implementation Planning**
-   - Create action items from recommendations
-   - Schedule optimization tasks
-   - Track potential savings
-
-## Understanding Results
-
-### Cost Breakdown
-- **Total AWS Cost**: Your calculated monthly AWS spending
-- **Regional Comparison**: How your costs compare to similar customers
-- **Service-Level Analysis**: Detailed breakdown by AWS service
-- **Efficiency Scores**: Performance metrics for each service
-
-### Optimization Metrics
-- **Potential Savings**: Estimated cost reduction opportunities
-- **Implementation Timeline**: Suggested schedule for changes
-- **ROI Calculations**: Expected return on optimization efforts
-
-### Benchmarking Data
-- **Regional Percentile**: Your standing among similar customers
-- **Efficiency Ratings**: Service-specific performance scores
-- **Industry Comparisons**: How you compare to industry standards
-
-## Cost Optimization
-
-### Immediate Actions
-1. Review high-impact, low-effort recommendations
-2. Implement suggested service-level adjustments
-3. Apply regional optimization strategies
-
-### Long-term Strategy
-1. Monitor cost trends over time
-2. Schedule regular optimization reviews
-3. Track implementation progress
-4. Measure actual savings against projections
-
-## Advanced Features
-
-### Forecasting Tools
-- Use the "View Cost Forecast" feature for future cost predictions
-- Analyze trend data for long-term planning
-- Adjust forecasts based on planned changes
-
-### Custom Analysis
-- Export detailed reports for offline analysis
-- Create custom benchmarking groups
-- Set up specialized monitoring metrics
+### Optimization Recommendations
+- **AI-Powered Suggestions:** Specific actions to reduce costs
+- **Implementation Information:** Difficulty and time estimates
+- **Estimated Savings:** Potential cost reductions
 
 ## Troubleshooting
 
 ### Common Issues
 
-1. **Calculation Errors**
-   - Verify all input data is correct
-   - Check for missing required fields
-   - Ensure valid license information
+**"Command not found" errors:**
+- Re-install the missing software and ensure "Add to PATH" was selected
 
-2. **Performance Issues**
-   - Clear browser cache
-   - Refresh the page
-   - Check internet connection
+**Port 3000 already in use:**
+- Use a different port: `npm run dev -- -p 3001`
 
-3. **Data Discrepancies**
-   - Verify customer information
-   - Review service selections
-   - Check regional settings
+**Page won't load:**
+- Check that the development server is running
+- Try refreshing the page
+- Clear your browser cache
 
-## Contributing
+**Calculation errors:**
+- Verify all required fields are filled out
+- Check that your location is spelled correctly
+- Ensure you've selected at least one lab type
 
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
+## Getting Help
 
-## License
+**Where to Get Help:**
+- Check the GitHub repository: [https://github.com/sharanvamsi/aws-cost-optimization-platform](https://github.com/sharanvamsi/aws-cost-optimization-platform)
+- Create an issue if your problem isn't listed
+- Include your operating system, error messages, and steps to reproduce the problem
 
-This project is licensed under the MIT License - see the LICENSE file for details.
-
----
-
-For additional support or questions, please contact our support team or open an issue on GitHub.
+This completes the comprehensive setup and usage guide for complete beginners!
